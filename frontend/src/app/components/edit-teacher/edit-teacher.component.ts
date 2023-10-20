@@ -31,14 +31,19 @@ export class EditTeacherComponent implements OnInit {
       console.log('ERROR - ', error)
     })
   }
-
-  editTeacher(values){
+  
+  editTeacher(values: any) {
     values.id = this.navigation.extras.state.id;
-    this.service.editTeacher(values).subscribe((response)=>{
-      this.teacherData = response[0];
-    },(error)=>{
-      console.log('ERROR - ', error)
-    })
+  
+    this.service.editTeacher(values).subscribe(
+      (response) => {
+        this.teacherData = response[0];
+        this.router.navigate([''])
+      },
+      (error) => {
+        console.error('ERROR:', error);
+      }
+    );
   }
 
 }
