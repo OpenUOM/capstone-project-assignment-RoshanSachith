@@ -1,0 +1,5 @@
+{
+    "assertionTimeout": 10000,
+    "pageLoadTimeout": 10000,
+    "pageRequestTimeout": 60000
+}
