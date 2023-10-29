@@ -173,5 +173,5 @@ module.exports = {
   readTeacherInfo,
   updateStudent,
   updateTeacher,
-  dbinitialize,
+  // dbinitialize,
 };
