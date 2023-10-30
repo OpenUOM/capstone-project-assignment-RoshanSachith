@@ -31,18 +31,13 @@ export class EditStudentComponent implements OnInit {
     })
   }
 
-  editStudent(values: any) {
+  editStudent(values){
     values.id = this.navigation.extras.state.id;
-  
-    this.service.editStudent(values).subscribe(
-      (response) => {
-        this.studentData = response[0];
-        this.router.navigate(['student'])
-      },
-      (error) => {
-        console.error('ERROR:', error);
-      }
-    );
+    this.service.editStudent(values).subscribe((response)=>{
+      this.studentData = response[0];
+    },(error)=>{
+      console.log('ERROR - ', error)
+    })
   }
 
 }

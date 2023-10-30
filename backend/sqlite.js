@@ -1,17 +1,15 @@
-const sqlite3 = require("sqlite3").verbose();
+const sqlite3 = require('sqlite3').verbose();
 
 let _DBConnection;
 
 const connectDatabase = async () => {
-  if (
-    process.env.NODE_ENV === "test" ||
-    process.env.NODE_ENV === "test-backend"
-  ) {
-    return new sqlite3.Database(":memory:", sqlite3.OPEN_READWRITE);
+
+  if (process.env.NODE_ENV === "test" || process.env.NODE_ENV === "test-backend") {
+      return new sqlite3.Database(":memory:", sqlite3.OPEN_READWRITE);
   } else {
-    return new sqlite3.Database("./db.sqlite", sqlite3.OPEN_READWRITE);
+    return new sqlite3.Database('./db.sqlite', sqlite3.OPEN_READWRITE);
   }
-};
+}
 
 const getDbConnection = async () => {
   if (!_DBConnection) {
@@ -20,7 +18,7 @@ const getDbConnection = async () => {
   return _DBConnection;
 };
 
-const closeConnection = (conn) => {
+const closeConnection = conn => {
   if (conn) {
     return conn.close();
   }
@@ -28,5 +26,5 @@ const closeConnection = (conn) => {
 
 module.exports = {
   getDbConnection,
-  closeConnection,
+  closeConnection
 };

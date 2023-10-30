@@ -50,10 +50,9 @@ export class StudentTableComponent implements OnInit {
       this.getStudentData()
     })
   }
-  
-  search(value) {
+
+  search(value : string) {
     let foundItems = [];
-    
     if (value.length <= 0) {
       this.getStudentData();
     } else {
